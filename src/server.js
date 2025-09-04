@@ -2,6 +2,8 @@ import express from "express";
 import { config } from "dotenv";
 import cors from "cors"; // Importa o middleware CORS
 
+import routes from "./routes/index.routes.js";
+
 config(); // Carrega variáveis de ambiente do arquivo .env
 const port = process.env.PORT || 5000;
 
@@ -15,6 +17,8 @@ app.use(express.json()); // Parse de JSON
 app.get("/", (req, res) => {
   res.json({ message: "API de Autores funcionando!" });
 });
+
+app.use("/", routes);
 
 // Iniciar o servidor
 app.listen(port, () => {
