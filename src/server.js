@@ -13,6 +13,9 @@ app.use(cors()); // Habilita CORS para todas as rotas
 
 app.use(express.json()); // Parse de JSON
 
+// Middleware para servir arquivos estáticos (imagens)
+app.use('/uploads', express.static('uploads'));
+
 // Rota base para verificar se o servidor está rodando
 app.get("/", (req, res) => {
   res.json({ message: "API de autores e livros funcionando! 📖" });
